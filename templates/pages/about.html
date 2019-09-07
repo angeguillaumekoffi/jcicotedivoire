@@ -1,0 +1,259 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_field %}
+
+{% block title %}A propos{% endblock %}
+
+{% block header-top %}
+      {% include 'header-top.html' %}
+{% endblock %}
+
+{% block nav %}
+    {% include 'nav.html' %}
+{% endblock %}
+
+{% block contenu %}
+<!-- Start top-post Area -->
+        <section class="top-post-area pt-10">
+        <div class="container no-padding">
+            <div class="row">
+                <div class="col-lg-12">
+							<div class="hero-nav-area">
+								<h1 class="text-white">Nous connaitre</h1>
+                            </div>
+						</div>
+					</div>
+				</div>
+        </section>
+			<!-- End top-post Area -->
+
+		<!-- Start service Area -->
+		<section class="service-area section-gap">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="single-service d-flex flex-row">
+							<div class="icon">
+								<span class="lnr lnr-home"></span>
+							</div>
+							<div class="details">
+								<a href="#">
+									<h4>La Jeune Chambre Internationale (JCI)</h4>
+								</a>
+								<p>
+									La Jeune Chambre Internationale (JCI) est une
+                                    Organisation Internationale de jeunes leaders
+                                    dont l'âge est compris entre 18 et 40 ans.
+                                </p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="single-service d-flex flex-row">
+							<div class="icon">
+								<span class="lnr lnr-question-circle"></span>
+							</div>
+							<div class="details">
+								<a href="#">
+									<h4>Mission de la JCI</h4>
+								</a>
+								<p>
+									Offrir aux jeunes des opportunités de
+                                    développement en leur donnant la capacité de
+                                    créer des changements positifs.
+                                </p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="single-service d-flex flex-row">
+							<div class="icon">
+								<span class="lnr lnr-hourglass"></span>
+							</div>
+							<div class="details">
+								<a href="#">
+									<h4>Vision de la JCI </h4>
+								</a>
+								<p>
+									Etre le principal réseau mondial de jeunes
+                                    citoyens actifs.
+                                </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- End service Area -->
+
+		<!-- Start info Area -->
+    <section class="testimonial-area section-gap">
+			<div class="container">
+				<div class="row d-flex justify-content-center">
+					<div class="menu-content pb-70 col-lg-8">
+						<div class="tileange text-center">
+							<h1 class="mb-10">Credo de la JCI</h1>
+							<p>Nous croyons : </p>
+                            <p>Que la Foi en Dieu donne à la vie son véritable sens; </p>
+                            <p>Que la fraternité humaine transcende la souveraineté des nations ; </p>
+                            <p>Que la liberté des individus et de l'entreprise assure mieux la justice économique ; </p>
+                            <p>Que l'autorité doit s'appuyer sur la loi et non sur l'arbitraire ; </p>
+                            <p>Que la personne humaine est la plus précieuse des richesses ;</p>
+                            <p>Et que servir l'humanité constitue l'œuvre la plus noble d'une vie. </p>
+						</div>
+					</div>
+				</div>
+				<div class="row d-flex justify-content-center">
+					<div class="menu-content pb-70 col-lg-8">
+						<div class="tileange text-center">
+							<h1 class="mb-10">Pensée du Père Fondateur de la JCI </h1>
+							<i>«Des profondeurs de l'âme de cette organisation,
+                                sur laquelle les fondations de la personnalité et
+                                du civisme sont assises, j'ai confiance qu'un jour
+                                émergera un message qui permettra aux
+                                hommes de s'acheminer vers l'établissement
+                                d'une paix durable dans le monde»</i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End info Area -->
+
+		<!-- Start feedback Area -->
+
+		<!-- End feedback Area -->
+    <section class="contact-page-area pt-50 pb-120">
+		<div class="container">
+            <div class="row contact-wrap">
+                 <img class="img-fluid" src="{% static 'img/siege JCI.png' %}" alt="">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-6">
+                    <h1 class="mb-10" style="text-align: center">La Jeune Chambre Internationale de Cote d'Ivoire</h1>
+                    <p>En 2019, la JCI Côte d'Ivoire est forte de Trente quatre
+                    (34) Organisations Locales Membres (OLM) réparties
+                    sur toute l'étendue du territoire.
+                    La JCI Côte d'Ivoire est repartie en trois (03) régions et
+                    six (06) zones.a
+                        <br><br><a href="{% url 'Guide' %}"  style="font-size: 16px; color: #00b3ee">Voir le Guide du membre</a></p>
+                </div>
+            </div>
+
+		</div>
+	</section>
+    <section class="service-area section-gap">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+						<div class="single-service d-flex flex-row">
+							<div class="icon">
+								<span class="lnr lnr-map"></span>
+							</div>
+							<div class="details">
+								<a href="#">
+									<h4>Signe du mandat 2019 de la JCI Côte d'Ivoire</h4>
+								</a>
+								<p> L'harmonie transformationnelle</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="single-service d-flex flex-row">
+							<div class="icon">
+								<span class="lnr lnr-hand"></span>
+							</div>
+							<div class="details">
+								<a href="#">
+									<h4>Vision du mandat 2019 de la JCI Côte d'Ivoire</h4>
+								</a>
+								<p>
+									Etre le vecteur de la métamorphose du monde.
+                                </p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="single-service d-flex flex-row">
+							<div class="icon">
+								<span class="lnr lnr-book"></span>
+							</div>
+							<div class="details">
+								<a href="{% url 'Constitution' %}">
+									<h4>Constitution de la JCI Cote d'Ivoire </h4>
+								</a>
+								<p>Veillez consulter <a href="{% url 'Constitution' %}" style="font-size: 16px; color: #00b3ee">la constitution</a> de la JCi Cote d'Ivoire.
+                                </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Start testimonial Area -->
+    <section class="contact-page-area pt-50 pb-120">
+		<div class="container">
+            <div class="row contact-wrap">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-12">
+                    <h1 class="mb-10" style="text-align: center">Les Institutions de la JCI Cote d'Ivoire.</h1>
+
+                </div>
+                {% if institut %}
+                <table class="w3-table-all">
+                    <thead>
+                      <tr class="w3-light-blue">
+                        <th>INSTITUTIONS</th>
+                        <th>RESPONSABLE</th>
+                      </tr>
+                    </thead>
+                    {% for head in institut %}
+                       <tr>
+                          <td>{{ head.institution }}</td>
+                          <td>{{ head.respo }}</td>
+                       </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            {% endif %}
+		</div>
+	</section>
+		<!-- End testimonial Area -->
+    <section class="contact-page-area pt-50 pb-120">
+		<div class="container">
+            <div class="row contact-wrap">
+                <h1 class="mb-10">Historique de la JCI Cote d'Ivoire</h1>
+            </div>
+            <div class="row contact-wrap">
+                <div class="col-lg-3">
+                    <h4 class="mb-2">1957 </h4>
+                    <p>Naissance Embryon à l'Aquarium
+ (ROGER BERNARD et ses amis)</p>
+                </div>
+                <div class="col-lg-3">
+                    <h4 class="mb-2">1960 </h4>
+                    <p>Création d'uneCellule d'Etude
+ Economique et Sociale (CEES)
+ par des Jeunes Ivoiriens rentrés
+ au pays</p>
+                </div>
+                <div class="col-lg-3">
+                    <h4 class="mb-2">1961</h4>
+                    <p>Reconnaissance de la CEES par
+ le Parlement de Côte d'Ivoire et
+ transformation en Jeune Chambre
+ Economique de Côte d'Ivoire
+ (JCE-CI)
+</p>
+                </div>
+                <div class="col-lg-3">
+                    <h4 class="mb-2">19-22 Nov. 1963</h4>
+                    <p>Affiliation à JCI sous feu TADJO
+1963 EHOUE et feu ABOU DOUMBIA
+ à TEL- AVIV en ISRAEL</p>
+                </div>
+            </div>
+		</div>
+	</section>
+{% endblock %}

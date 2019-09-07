@@ -1,0 +1,25 @@
+{% extends "accounts/auth_base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{{ block.super }}Inscription{% endblock %}
+
+{% block form_heading %}Inscription à la JCI Cote d'Ivoire {% endblock %}
+
+{% block form %}
+    <div class="form-message">
+   <h4>
+      Veillez consulter le <a href="{% url 'Guide' %}">Guide du membre</a> avant.
+    </h4><br>
+
+  </div>
+
+  {% crispy form %}
+
+  <div class="form-message">
+    <p>
+      Etes-vous déja inscrit? <a href="{% url 'accounts:login' %}">Connectez-vous</a>.
+    </p>
+  </div>
+{% endblock form %}
+

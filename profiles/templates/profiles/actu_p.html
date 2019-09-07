@@ -1,0 +1,16 @@
+{% load static %}
+{% load thumbnail %}
+
+{% if Actua %}
+  {% for A in Actua %}
+    <div class="responsange" >
+      {% if A.actu_img %}
+        <div class="gallery">
+          <a href="{% url 'details_actu' A.actu_titre %}"><img src="{{A.actu_img.url }}" alt="fichier"  style="width: 100%; height: 250px; object-fit: fill;"></a>
+      {% else %}
+      {% endif %}
+      <div class="desc">{{ A.actu_titre| truncatechars:"70" }}</div>
+    </div><br>
+    </div>
+  {% endfor %}
+{% endif %}

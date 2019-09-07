@@ -1,0 +1,16 @@
+{% load static %}
+{% load thumbnail %}
+
+{% if publication %}
+  {% for img in publication %}
+    <div class="responsive" >
+      {% if img.pub_file %}
+        <div class="gallery">
+          <a href="{% url 'details_publi' img.id %}"><img src="{{ img.pub_file.url }}" alt="fichier"  style="width: 100%; height: 110px; object-fit: cover;"></a>
+          <div class="desc"></div>
+        </div>
+      {% else %}
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endif %}

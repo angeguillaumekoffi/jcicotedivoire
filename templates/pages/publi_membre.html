@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load social_share %}
+
+{% block title %}details{% endblock %}
+
+{% block header-top %}
+{% include 'header-top.html' %}
+{% endblock %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+
+{% block contenu %}
+			<!-- Start top-post Area -->
+			<section class="top-post-area pt-10">
+				<div class="container no-padding">
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="hero-nav-area">
+								<h1 class="text-white">Details de la publication</h1>
+                                <h4 class="text-white"></h4>
+                            </div>
+						</div>
+						<div class="col-lg-12">
+							<div class="news-tracker-wrap">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End top-post Area -->
+			<!-- Start latest-post Area -->
+			<section class="latest-post-area pb-120">
+				<div class="container no-padding">
+					<div class="row">
+						<div class="col-lg-8 post-list">
+							<!-- Start single-post Area -->
+							{% if detail_publi %}
+							<div class="single-post-wrap">
+                                <a href="{{ detail_publi.pub_file.url }}"><div class="feature-img-thumb relative">
+									<div class="overlay "></div>
+                                    {% if detail_publi.pub_file %}
+                                    <img class="img-fluid" src="{{ detail_publi.pub_file.url }}" alt="">
+                                    {% endif %}
+								</div></a>
+								<div class="content-wrap">
+									<h4>{{ detail_publi.pub_text | safe }}</h4>
+									<ul class="meta pb-20">
+										<li><a href="#"><span class="lnr lnr-user"></span>{{ detail_publi.pub_par }}</a></li>
+										<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{ detail_publi.pub_dat }}</a></li>
+									</ul>
+									<p><button type="button" class="fa fa-facebook-official w3-button w3-blue w3-margin-bottom" >{% post_to_facebook object_or_url "Partager" %}</button>
+                                    </p>
+							</div>
+
+						</div>
+                            {% endif %}
+						<!-- End single-post Area -->
+					</div>
+                        {% include 'pages/ruban_droite.html' %}
+				</div>
+			</div>
+		</section>
+		<!-- End latest-post Area -->
+ <!-- Start contact-page Area -->
+            <section class="contact-page-area pt-50">
+				<div class="container">
+					<div class="row contact-wrap">
+                        <h2 style="font-size: 40px; text-align: center; margin-left: 35%">Contactez-nous !</h2>
+                    </div>
+                </div>
+            </section>
+			<section class="contact-page-area pb-120">
+				<div class="container">
+					<div class="row contact-wrap">
+						<div class="map-wrap" style="width:100%; height: auto;" id="map"></div>
+						<div class="col-lg-3 d-flex flex-column address-wrap">
+                            <hr>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-home"></span>
+								</div>
+								<div class="contact-details">
+									<h5>Angle 6 Avenue Lamblin, rue Augustin Tessières, Abidjan Plateau </h5>
+									<p>
+										01 BP 3714 Abidjan 01
+									</p>
+								</div>
+							</div>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-phone-handset"></span>
+								</div>
+								<div class="contact-details">
+									<h5>Tél : +225 20 32 76 86</h5>
+									<p>Lundi au samedi 8h-16h</p>
+								</div>
+							</div>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-envelope"></span>
+								</div>
+								<div class="contact-details">
+									<h5>E-mail : sg.jcicotedivoire@gmail.com</h5>
+									<p>Contactez-nous</p>
+								</div>
+							</div>
+						</div>
+                        <div class="col-lg-1"><br></div>
+						<div class="col-lg-8">
+							<form class="form-area contact-form text-left" enctype="multipart/form-data" method="post">
+                                <div class="row">
+									<div class="col-lg-9">
+                                        {% csrf_token %}
+                                        {% crispy cont_form %}
+                                    </div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End contact-page Area -->
+{% endblock %}

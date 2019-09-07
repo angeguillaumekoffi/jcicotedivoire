@@ -1,0 +1,16 @@
+{% load static %}
+{% load thumbnail %}
+
+{% if Activ %}
+  {% for A in Activ %}
+    <div class="responsange" >
+      {% if A.img %}
+        <div class="gallery">
+          <a href="{% url 'details_actvr' A.titre %}"><img src="{{ A.img.url }}" alt="fichier"  style="width: 100%; height: 200px; object-fit: fill;"></a>
+      {% else %}
+      {% endif %}
+      <div class="desc" style="border-top: 1px solid #c0c0c0 ">{{ A.titre| truncatechars:"70" }}</div>
+    </div><br>
+    </div>
+  {% endfor %}
+{% endif %}

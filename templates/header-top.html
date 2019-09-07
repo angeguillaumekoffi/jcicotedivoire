@@ -1,0 +1,122 @@
+{% load staticfiles %}
+<style>
+.dropbtn1 {
+  background-color: #77dc71;
+  color: white;
+  padding: 14px;
+  font-size: 14px;
+  border: solid 2px #77dc71;
+  cursor: pointer;
+}
+
+.cont {
+  background-color: #77dc71;
+  color: white;
+  border: 2px solid #77dc71;
+  padding: 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown1-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown1-content li {
+  color: black;
+  padding: 2px 2px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown1-content li:hover {background-color: #dcdcdc;
+    display: block;
+}
+@media (max-width: 330px) {
+  .recherche {
+    margin-top: 8px;
+    width: 350px;
+  }
+}
+
+.dropdown1:hover .dropdown1-content {
+
+}
+
+.dropdown1:hover .dropbtn1 {
+  background-color: #77dc71;
+}
+
+</style>
+<div class="header-top">
+    <div class="container">
+        <div class="row">
+            <span style="color: #fff">Flash-infos :</span>
+            <div class="marquee-rtl">
+                <!-- le contenu défilant -->
+                <span style="color: #f24">
+                    {% for elmt in Info %}
+                            {{ elmt.info }}. &ensp; &ensp; &ensp; &ensp; //   &ensp;  &ensp;&ensp; &ensp;
+                    {% endfor %}
+                </span>
+            </div>
+            <div class="col-lg-6 header-top-right w3-display-topright no-padding" style="margin-top: 10px; margin-right: 8%;@media () {.header-top-right w3-display-topright no-padding:margin-right: 2%}">
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="logo-wrap">
+    <div class="container">
+        <div class="dropdown1">
+            <button class="dropbtn1" style="padding: 3px">LISTE DES OLM</button>
+                <div class="dropdown1-content" >
+                     <ul style="max-height: 400px ;overflow: hidden; overflow-y: scroll">
+                        {% for olms in List_olm %}
+                            <li><p>{{ olms.olm }}</p></li>
+                        {% endfor %}
+                     </ul>
+                </div>
+        </div>
+        <div class="dropdown1">
+            <a href="{% url 'accounts:login' %}">
+            <button class="cont"  style="padding: 3px">ESPACE MEMBRES</button></a>
+        </div>
+        <form action="{% url 'Recherche' %}" method="get" style="display: inline-block">
+            <div class="dropdown1">
+                <input class="recherche w3-input " type="text" name="q" style="max-width: 100%; border-radius:4%; border: 2px solid #77dc71;" placeholder="Rechercher" value="" required>
+            </div>
+            <button type="submit" style="background-color: #77dc71; border: 4px solid #77dc71"><i class="fa fa-search" ></i></button>
+        </form>
+        <br><br>
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-4 col-md-4 col-sm-12 logo-left no-padding">
+                <a href="{% url 'home' %}">
+                    <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="">
+                </a>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 logo-right no-padding ads-banner">
+                <img class="img-fluid" src="{% static 'img/banner-ad.jpg' %}" alt="" width="728" height="90">
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+

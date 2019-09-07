@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!-- start footer Area -->
+		<footer class="footer-area section-gap">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 single-footer-widget">
+						<h4>JCI Cote d'Ivoire</h4>
+						<ul>
+							<li><i class="fa fa-home"></i> Angle 6 Avenue Lamblin, rue<br> Augustin Tessières, Abidjan Plateau
+                                01 BP 3714 Abidjan 01</li>
+							<li><i class="fa fa-phone"></i>  Tél : +225 20 32 76 86</li>
+							<li><i class="fa fa-inbox"></i> sg.jcicotedivoire@gmail.com</li>
+
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 single-footer-widget">
+						<h4>Liens rapides</h4>
+						<ul>
+                            <li><a href="{% url 'accounts:login' %}">Connexion</a></li>
+							<li><a href="{% url 'Actualites' %}">Actualité</a></li>
+							<li><a href="{% url 'accounts:signup' %}">Devenir membre</a></li>
+							<li><a href="#">Nos activités</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 single-footer-widget">
+						<h4>Nous connaitre</h4>
+						<ul>
+							<li><a href="{% url 'about' %}">Credo</a></li>
+							<li><a href="{% url 'Constitution' %}">Constitution</a></li>
+							<li><a href="{% url 'about' %}">Vision</a></li>
+							<li><a href="{% url 'about' %}">Signes</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 single-footer-widget">
+						<h4>Autres</h4>
+						<ul>
+							<li><a href="{% url 'about' %}">A propos</a></li>
+							<li><a href="{% url 'Guide' %}">Guide du membre</a></li>
+							<li><a href="#">Rapports</a></li>
+							<li><a href="{% url 'Gallerie' %}">PressBoock</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-3 col-md-6 single-footer-widget">
+						<h4>Gallerie photos</h4>
+						<ul class="instafeed d-flex flex-wrap">
+                            {% if Actua_gal or publi_gal %}
+                                {% for A in Actua_gal %}
+                                    {% if A.actu_img %}
+                                        <li><a href="{% url 'details_actu' A.actu_titre %}"><img src="{{ A.actu_img.url }}" alt="" style="max-height: 50px"></a></li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% for P in Publi_gal %}
+                                    {% if P.pub_file %}
+                                        <li><a href="{% url 'details_publi' P.id %}"><img src="{{ P.pub_file.url }}" alt="" style="max-height: 50px"></a></li>
+                                    {% endif %}
+                                {% endfor %}
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+				<div class="footer-bottom row align-items-center">
+					<p class="footer-text m-0 col-lg-8 col-md-12">
+                       &copy; JCI Cote d'Ivoire {% now 'Y' %} | Tous les droits reservés
+                    </p>
+					<div class="col-lg-4 col-md-12 footer-social">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-dribbble"></i></a>
+						<a href="#"><i class="fa fa-behance"></i></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- End footer Area -->

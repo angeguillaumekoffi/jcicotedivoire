@@ -1,0 +1,108 @@
+{% extends "all/base.html" %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Profile{% endblock %}
+
+{% block container %}
+
+<div class="container profile-head">
+  <div class="row">
+    <div class="col-sm-4" style="float: right;">
+      {% if editable %}
+        {% if show_user.profile.email_verified %}
+        <a href="{% url 'profiles:edit_self' %}" class="btn btn-info">Modifier </a>
+        <a href="{% url 'profiles:poster' %}" class="btn btn-success">Publier</a>
+        {% endif %}
+        <a href="{% url 'accounts:logout' %}" class="btn btn-danger">Deconnxion</a>
+
+      {% endif %}
+      {% if not show_user.profile.email_verified %} <h4>Vous aurez la possibilité de publier lorsque votre compte sera entièrement vérifié.</h4>
+      {% endif %}
+    </div>
+    <div class="col-sm-2" style="float: left"><img title="Photo profile" class="img-circle img-responsive" src="{% thumbnail show_user.profile.picture|default:'default_profile.png' 140x140 crop %}" alt="">
+    </div>
+    <div class="col-sm-2"><h1>{{ show_user.get_full_name }}</h1></div>
+  </div>
+</div>
+
+<div class="container profile-body">
+  <div class="row">
+    <div class="col-sm-4">
+      <ul class="list-group">
+        <li class="list-group-item text-muted">Mes informations</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Email:</strong></span> {{ show_user.email|default:"missing" }}
+	  {% if show_user.profile.email_verified %}
+	    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true" title="This email address has been verified"></span>
+	    <span class="sr-only">Vérifié</span>
+	  {% else %}
+	    <span class="glyphicon glyphicon-warning-sign" aria-hidden="true" title="This email address is not verified"></span>
+	    <span class="sr-only">Non Vérifié</span>
+	  {% endif %}
+	</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Téléphone :</strong></span> {{ show_user.profile.tel }}</li>
+        <!--li class="list-group-item text-right"><span class="pull-left"><strong>A étudié à</strong></span></li-->
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Inscrit le</strong></span> {{ show_user.date_joined }}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Connecté depuis le</strong></span> {{ show_user.last_login }}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>OLM</strong></span> {{ show_user.profile.olm }}</li>
+      </ul>
+    </div>
+    <div class="col-sm-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">Utilisateur {{ show_user.get_full_name }}
+	      {% if show_user.profile.slug %} <a href="{% url 'profiles:show' show_user.profile.slug %}">
+	    	  <span class="glyphicon glyphicon-link" aria-hidden="true" title="Lien de mon profile"></span>
+	    	  <span class="sr-only">Lien</span></a> {# show_user.profile.get_absolute_url #}
+	      {% else %}
+	      {% endif %}
+	      </div>
+        <div class="panel-body">
+	        <strong>Bio</strong> : {{ show_user.profile.bio }}
+	      </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">Publications de {{ show_user.get_full_name }}
+	      </div>
+        <div class="panel-body">
+	        {% include 'profiles/medias_poste.html' %}
+	      </div>
+      </div>
+    </div>
+  <!--div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Actualités
+	      </div>
+        <div class="panel-body">
+	        {# include 'profiles/actu_p.html' #}
+	      </div>
+      </div>
+  </div-->
+  <div class="col-sm-4" style="float: left">
+      <div class="panel panel-default">
+        <div class="panel-heading">Activités
+	      </div>
+        <div class="panel-body">
+	        {% include 'profiles/activ_p.html' %}
+	      </div>
+      </div>
+  </div>
+  <div class="col-sm-8" style="float: right">
+      <div class="panel panel-default">
+        <div class="panel-heading">Publications des membres
+	      </div>
+        <div class="panel-body">Jeune Chambre Internationale de Cote d'Ivoire
+	      </div>
+      </div>
+  </div>
+  <div class="col-sm-8" style="float: right">
+	        {% include 'profiles/membre_p.html' %}
+  </div>
+
+</div>
+
+{% endblock %}
+
+

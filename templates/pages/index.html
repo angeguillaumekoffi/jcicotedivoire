@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load social_share %}
+{% load thumbnail %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_field %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block header-top %}
+      {% include 'header-top.html' %}
+{% endblock %}
+
+{% block nav %}
+    {% include 'nav.html' %}
+{% endblock %}
+
+{% block contenu %}
+
+<!-- Start top-post Area -->
+			<section class="top-post-area pt-10">
+				<div class="container no-padding">
+					<div class="row small-gutters">
+						<div class="col-lg-8 top-post-left">
+                            {% if Actua %}
+                           {% for A in Actua %}
+                               <div class="mySlides">
+							<div class="feature-image-thumb relative">
+								<div class="overlay overlay-bg"></div>
+                                {% if A.actu_img %}
+                                    <img  src="{{  A.actu_img.url }}" style="width:100%" alt="" >
+                                {% else %}
+                                    <img  src="{% static 'img/defaut_img.png' %}" style="width:100%" alt="" >
+                                {% endif %}
+							</div>
+							<div class="top-post-details">
+								<ul class="tag">
+									<li><a  href="{% url 'details_actu' A.actu_titre %}">Voir plus</a></li>
+								</ul>
+								<a href="{# url 'image-post.html' #}">
+									<h3 >{{ A.actu_descri| truncatewords:30 | safe  }}</h3>
+								</a>
+								<ul class="meta">
+									<li><span class="lnr lnr-user"></span>JCI Cote d'Ivoire</li>
+									<li><span class="lnr lnr-calendar-full"></span>{{ A.actu_dat }}</li>
+								</ul>
+							</div></div>
+                            {% endfor %}
+                        {% endif %}
+						</div>
+						<div class="col-lg-4 top-post-right">
+							<div class="single-top-post">
+                            {% if Actu_sec %}
+								<div class="feature-image-thumb relative">
+									<div class="overlay overlay-bg"></div>
+                                    {% if Actu_sec.actu_img %}
+                                        <img class="img-fluid" src="{{ Actu_sec.actu_img.url }}" alt="">
+                                     {% else %}
+                                        <!--img  src="{% static 'img/defaut_img.png' %}" style="width:100%" alt="" -->
+                                    {% endif %}
+								</div>
+								<div class="top-post-details">
+									<ul class="tag">
+										<li><a href="{% url 'details_actu' Actu_sec.actu_titre %}">Voir plus</a></li>
+									</ul>
+									<a href="{# url 'image-post.html' #}">
+										<h4>{{ Actu_sec.actu_descri | truncatewords:15 | safe  }}</h4>
+									</a>
+									<ul class="meta">
+										<li><span class="lnr lnr-user"></span>JCI Cote d'Ivoire</li>
+										<li><span class="lnr lnr-calendar-full"></span>{{ Actu_sec.actu_dat }}</li>
+									</ul>
+								</div>
+                            {% endif %}
+							</div>
+							<div class="single-top-post mt-10">
+                            {% if Actu_3 %}
+								<div class="feature-image-thumb relative">
+									<div class="overlay overlay-bg"></div>
+                                    {% if Actu_3.actu_img %}
+                                        <img class="img-fluid" src="{{ Actu_3.actu_img.url }}" alt="">
+                                     {% else %}
+                                        <img  src="{% static 'img/defaut_img.png' %}" style="width:100%" alt="" >
+                                    {% endif %}
+								</div>
+								<div class="top-post-details">
+									<ul class="tag">
+										<li><a href="{% url 'details_actu' Actu_3.actu_titre %}">Voir plus</a></li>
+									</ul>
+									<a href="{# url 'image-post.html' #}">
+										<h4>{{ Actu_3.actu_descri| truncatewords:15 | safe  }}</h4>
+									</a>
+									<ul class="meta">
+										<li><span class="lnr lnr-user"></span>JCI Cote d'Ivoire</li>
+										<li><span class="lnr lnr-calendar-full"></span>{{ Actu_3.actu_dat }}</li>
+									</ul>
+								</div>
+                            {% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End top-post Area -->
+			<!-- Start latest-post Area -->
+			<section class="latest-post-area pb-120">
+				<div class="container no-padding">
+					<div class="row">
+						<div class="col-lg-8 post-list">
+							<!-- Start latest-post Area -->
+							<div class="latest-post-wrap">
+								<h4 class="cat-title">ACTUALITE</h4>
+                                {% if Actua %}
+                                    {% for A in Actua %}
+								<div class="single-latest-post row align-items-center">
+									<div class="col-lg-5 post-left">
+										<div class="feature-img relative">
+											<div class="overlay overlay-bg"></div>
+                                            {% if A.actu_img %}
+                                                <img class="img-fluid" src="{{ A.actu_img.url }}" alt="">
+                                            {% else %}
+                                                <img  src="{% static 'img/defaut_img.png' %}" style="width:100%" alt="" >
+                                            {% endif %}
+										</div>
+										<ul class="tag">
+											<li><a href="{% url 'details_actu' A.actu_titre %}">Details</a></li>
+										</ul>
+									</div>
+									<div class="col-lg-7 post-right">
+										<a href="{# url 'image-post.html' #}">
+											<h4>{{ A.actu_titre }}</h4>
+										</a>
+										<ul class="meta">
+											<li><a href="#"><span class="lnr lnr-user"></span>JCI Cote d'Ivoire</a></li>
+											<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{ A.actu_dat }}</a></li>
+										</ul>
+										<p class="excert">
+											{{ A.actu_descri | truncatewords:40 | safe }}
+										</p>
+									</div>
+								</div>
+                                    {% endfor %}
+                                {% endif %}
+							</div>
+							<!-- End latest-post Area -->
+
+							<!-- Start banner-ads Area -->
+							<div class="col-lg-12 ad-widget-wrap mt-30 mb-30">
+								<img class="img-fluid" src="{% static 'img/banner-ad.jpg' %}" alt="">
+							</div>
+							<!-- End banner-ads Area -->
+							<!-- Start popular-post Area -->
+
+							<!-- End popular-post Area -->
+							<!-- Start relavent-story-post Area -->
+							<div class="relavent-story-post-wrap mt-30">
+								<h4 class="title">PUBLICATIONS DES MEMBRES</h4>
+								<div class="relavent-story-list-wrap">
+                                    {% if Publi %}
+                                        {% for P in Publi %}
+                                            <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+                                                <a href="{% url 'profiles:show' P.pub_par.slug %}"><img style="border-radius:50%;" src="{% thumbnail P.pub_par.user.profile.picture|default:'default_profile.png' 40x40 crop %}" alt="photo" class="w3-left w3-margin-right"></a>
+                                            <span class="w3-right w3-opacity">{{ P.pub_dat }}</span>
+                                            <h4>{{ P.pub_par }}</h4><br>
+                                            <hr class="w3-clear">
+                                            <p>{{ P.pub_text | safe }}</p>
+                                            {% if P.pub_file %}
+												<a href="{% url 'details_publi' P.id %}"><img src="{{ P.pub_file.url }}" style="width:100%; height: 300px" class="w3-margin-bottom" alt=""></a>
+                                            {% else %}
+                                                {% endif %}
+                                                <a href="{% url 'details_publi' P.id %}"><button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-eye"></i>  Voir</button></a>
+                                            <i class="fa fa-facebook-official"></i><button type="button" class="w3-button w3-theme-d2 w3-margin-bottom" >{% post_to_facebook object_or_url "Partager" %}</button>
+                                           </div>
+                                        {% endfor %}
+                                    {% endif %}
+								</div>
+							</div>
+							<!-- End relavent-story-post Area -->
+						</div>
+                        {% include 'pages/ruban_droite.html' %}
+					</div>
+				</div>
+			</section>
+			<!-- End latest-post Area -->
+            <!-- Start contact-page Area -->
+            <section class="contact-page-area pt-50">
+				<div class="container">
+					<div class="row contact-wrap">
+                        <h1 style=" text-align: center; alignment: center">Contactez-nous !</h1>
+                    </div>
+                </div>
+            </section>
+			<section class="contact-page-area pb-120">
+				<div class="container">
+					<div class="row contact-wrap">
+						<div class="map-wrap" style="width:100%; height: auto;" id="map"></div>
+						<div class="col-lg-3 d-flex flex-column address-wrap">
+                            <hr>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-home"></span>
+								</div>
+								<div class="contact-details">
+									<h5>Angle 6 Avenue Lamblin, rue Augustin Tessières, Abidjan Plateau </h5>
+									<p>
+										01 BP 3714 Abidjan 01
+									</p>
+								</div>
+							</div>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-phone-handset"></span>
+								</div>
+								<div class="contact-details">
+									<h5>Tél : +225 20 32 76 86</h5>
+									<p>Lundi au samedi 8h-16h</p>
+								</div>
+							</div>
+							<div class="single-contact-address d-flex flex-row">
+								<div class="icon">
+									<span class="lnr lnr-envelope"></span>
+								</div>
+								<div class="contact-details">
+									<h5>E-mail : sg.jcicotedivoire@gmail.com</h5>
+									<p>Contactez-nous</p>
+								</div>
+							</div>
+						</div>
+                        <div class="col-lg-1"><br></div>
+						<div class="col-lg-8">
+							<form class="form-area contact-form text-left" enctype="multipart/form-data" method="post">
+                                <div class="row">
+									<div class="col-lg-9">
+                                        {% csrf_token %}
+                                        {% crispy cont_form %}
+                                    </div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End contact-page Area -->
+{% endblock %}

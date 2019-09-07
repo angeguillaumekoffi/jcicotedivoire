@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="container main-menu" id="main-menu">
+				<div class="row align-items-center justify-content-between">
+					<nav id="nav-menu-container">
+						<ul class="nav-menu">
+							<li class="menu-active"><a href="{% url 'home' %}">ACCUEIL</a></li>
+							<li class="menu-has-children"><a href="{% url 'about' %}">NOUS CONNAITRE</a></li>
+							<li class="menu-has-children"><a href="">NOS ACTIVITES</a>
+                                <ul>
+								<li style="display: inline-block; padding: 0;"><a href="{% url 'Activite' 'Réalisée' %}">Réalisées</a></li>
+								<li style="display: inline-block; padding: 0;"><a href="{% url 'Activite' 'Non-réalisée' %}">Non-réalisées</a></li>
+							    </ul>
+                            </li>
+							<li class="menu-has-children"><a href="">MEDIATHEQUE</a>
+							<ul>
+								<li><a href="">Rapports</a></li>
+								<li><a href="{% url 'Gallerie' %}">Pressboock</a></li>
+							</ul>
+                            </li>
+                            <li><a href="{% url 'Actualites' %}">ACTUALITES</a></li>
+						    <li><a href="{% url 'presidents' %}">PRESIDENTS</a></li>
+                            <li><a href="{% url 'accounts:signup' %}">Devenir membre</a></li>
+					</ul>
+					</nav><!-- #nav-menu-container -->
+
+				</div>
+			</div>

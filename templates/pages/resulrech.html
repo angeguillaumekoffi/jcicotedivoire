@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}Actualités{% endblock %}
+
+{% block header-top %}
+{% include 'header-top.html' %}
+{% endblock %}
+
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+
+
+{% block contenu %}
+			<!-- Start latest-post Area -->
+			<section class="latest-post-area pb-120">
+				<div class="container no-padding">
+					<div class="row">
+						<div class="col-lg-8 post-list">
+							<!-- Start latest-post Area -->
+							<div class="latest-post-wrap">
+								<h4 class="cat-title">Organisations Locales Membres trouvé</h4>
+                                {% if result %}
+								<div class="single-latest-post row align-items-center">
+									<div class="col-lg-12 post-left">
+										<table class="w3-table-all">
+                                        <thead>
+                                          <tr class="w3-light-blue">
+                                            <th>OLM</th>
+                                            <th>VPN A</th>
+                                          </tr>
+                                        </thead>
+                                        {% for R in result %}
+                                           <tr>
+                                              <td>{{ R.olm }}</td>
+                                              <td>{{ R.zone.vpn_a }}</td>
+                                           </tr>
+                                        {% endfor %}
+                                        </table>
+									</div>
+								</div>
+                                {% else %} <h2>Aucune OLM trouvée!</h2>
+                                {% endif %}
+							</div>
+							<!-- End latest-post Area -->
+							<!-- Start popular-post Area -->
+                            <div class="relavent-story-post-wrap mt-30">
+								<h4 class="title">Utilisateurs trouvés</h4>
+								<div class="relavent-story-list-wrap">
+                                {% if resultuser %}
+                                    {% for R in resultuser %}
+									 <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+                                         <a href="{% url 'profiles:show' R.slug %}"><img style="border-radius:50%;" src="{% thumbnail R.picture|default:'default_profile.png' 40x40 crop %}" alt="photo" class="w3-left w3-margin-right"></a>
+                                         <span class="w3-right w3-opacity">Membre</span>
+                                         <a href="{% url 'profiles:show' R.slug %}"><h4>{{ R.user.name }}</h4></a><br>
+                                         <hr class="w3-clear">
+                                         <p><span>Bio : </span>{{ R.bio }}</p>
+									</div>
+
+                                    {% endfor %}
+                                {% else %} <h2>Aucun utilateur trouvé!</h2>
+                                {% endif %}
+                                </div>
+							</div>
+							<!-- End popular-post Area -->
+						</div>
+						{% include 'pages/ruban_droite.html' %}
+					</div>
+				</div>
+			</section>
+			<!-- End latest-post Area -->
+
+{% endblock %}

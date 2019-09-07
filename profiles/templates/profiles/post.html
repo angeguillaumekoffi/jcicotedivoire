@@ -1,0 +1,60 @@
+{% extends "all/base.html" %}
+
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% load thumbnail %}
+
+{% block title %}{{ block.super }}Publication{% endblock %}
+
+<!-- Benefits of the Django application -->
+{% block container %}
+
+<div class="container">
+  <div class="container profile-head">
+  <h1 class="text-primary">Publier quelque chose</h1>
+  </div>
+  <br>
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-4">
+      <div class="text-center">
+        <img title="profile picture" class="img-circle img-responsive" src="{% thumbnail user.profile.picture|default:'default_profile.png' 140x140 crop %}">
+      </div>
+        <br>
+        <br>
+      <ul class="list-group">
+        <li class="list-group-item text-muted">Mes informations</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Email:</strong></span> {{ show_user.email|default:"missing" }}
+	  {% if show_user.profile.email_verified %}
+	    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true" title="This email address has been verified"></span>
+	    <span class="sr-only">Vérifié</span>
+	  {% else %}
+	    <span class="glyphicon glyphicon-warning-sign" aria-hidden="true" title="This email address is not verified"></span>
+	    <span class="sr-only">Non Vérifié</span>
+	  {% endif %}
+	</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Téléphone :</strong></span> {{ show_user.profile.tel }}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Inscrit le</strong></span> {{ show_user.date_joined }}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Connecté depuis le</strong></span> {{ show_user.last_login }}</li>
+      </ul>
+    </div>
+    <div class="col-sm-3">
+
+    </div>
+
+    <!-- edit form column -->
+    <div class="col-md-7">
+      <h3>Ce que {{ show_user.get_full_name }} souhaite publier</h3>
+      <form enctype="multipart/form-data" method="post" class="form">
+          {% csrf_token %}
+            {% crispy form %}
+          <!--button type="submit" class="btn btn-large">Publier</button-->
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+

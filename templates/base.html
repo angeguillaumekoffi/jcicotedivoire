@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="{% static 'img/logo1.PNG' %}">
+		<!-- Author Meta -->
+		<meta name="Astech" content="Astech">
+		<!-- Meta Description -->
+		<meta name="description" content="Site web de la jeune chambre internationale">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="JCI">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>JCI : {% block title %}{% endblock %}</title>
+		<!--CSS============================================= -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/linearicons.css' %} ">
+		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %} ">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+		<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+		<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+		<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+		<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'w3/w3.css' %}">
+    <style>
+        .mySlides {display:none;}
+    </style>
+    </head>
+	<body>
+    <header>
+        {% block header-top %}
+        {% endblock %}
+
+        {% block nav %}
+        {% endblock %}
+    </header>
+    <div class="site-main-container">
+            {% block contenu %}
+            {% endblock %}
+    </div>
+		<!-- start footer Area -->
+            {%  include 'footer.html' %}
+		<!-- End footer Area -->
+		<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+		<script src="{% static 'js/easing.min.js' %}"></script>
+		<script src="{% static 'js/hoverIntent.js' %}"></script>
+		<script src="{% static 'js/superfish.min.js' %}"></script>
+		<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+		<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+		<script src="{% static 'js/mn-accordion.js' %}"></script>
+		<script src="{% static 'js/jquery-ui.js' %}"></script>
+		<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+		<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'js/mail-script.js' %}"></script>
+		<script src="{% static 'js/main.js' %}"></script>
+        <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 5000); // Change image every 2 seconds
+}
+</script>
+
+	</body>
+</html>

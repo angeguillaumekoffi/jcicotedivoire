@@ -1,0 +1,22 @@
+{% load static %}
+{% load thumbnail %}
+
+{% if publi %}
+  {% for img in publi %}
+      <div class="panel panel-default">
+        <div class="panel-heading"><a href="{% url 'profiles:show' img.pub_par.slug %}" style="color: #FFFFFF"><img style="border-radius:50%;" src="{% thumbnail img.pub_par.user.profile.picture|default:'default_profile.png' 40x40 crop %}" alt="" />
+			        &ensp;{{ img.pub_par.user.get_full_name|truncatechars:20 }}</a>
+            <h6 style="float: right; color: #fff">{{ img.pub_dat }}</h6>
+	      </div>
+      <div class="panel-body">{{ img.pub_text| safe }}
+      </div>
+      <div class="panel-body">
+          {% if img.pub_file %}
+              <a href="{% url 'details_publi' img.id %}"><img src="{{ img.pub_file.url }}" alt="fichier"  style="width: 100%; height: 250px; object-fit: fill; border-bottom: 1px solid #c0c0c0"></a>
+          {% else %}
+          {% endif %}
+          <!--div class="desc">{ img.pub_text| truncatechars:"70" }}</div-->
+        </div><br>
+        </div>
+  {% endfor %}
+{% endif %}
