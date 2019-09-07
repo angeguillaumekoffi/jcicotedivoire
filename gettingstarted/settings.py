@@ -164,10 +164,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "http://jcicdn-1190a.kxcdn.com/media/"
+MEDIA_URL = "https://jcicotedivoire.b-cdn.net/media/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_STORAGE = 'https://jcicdn-1190a.kxcdn.com/static/'
-STATIC_URL = 'https://jcicdn-1190a.kxcdn.com/static/'
+STATICFILES_STORAGE = 'https://jcicotedivoire.b-cdn.net/static/'
+STATIC_URL = 'https://jcicotedivoire.b-cdn.net/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
