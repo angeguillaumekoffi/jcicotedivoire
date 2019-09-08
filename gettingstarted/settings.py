@@ -72,6 +72,7 @@ CKEDITOR_CONFIGS = {
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -164,10 +165,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "https://jcicotedivoire.b-cdn.net/media/"
+MEDIA_URL = "/media/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_STORAGE = 'https://jcicotedivoire.b-cdn.net/static/'
-STATIC_URL = 'https://jcicotedivoire.b-cdn.net/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
