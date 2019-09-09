@@ -27,7 +27,7 @@ def phot_profile(instance, filename):
 
 class BaseProfile(models.Model):
     user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, primary_key=True, blank=True
     )
     slug = models.UUIDField(default=uuid.uuid4, blank=True, editable=False)
     # Add more user profile fields here. Make sure they are nullable

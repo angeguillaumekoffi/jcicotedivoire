@@ -79,7 +79,7 @@ class FormationForm(forms.ModelForm):
             Field("theme"),
             Field("forma_dat"),
             Field("formateur"),
-            Submit("update", "Publier", css_class="btn-large"),
+            Submit("update", "Valider", css_class="btn-large"),
         )
     class Meta:
         model = Formation

@@ -82,18 +82,17 @@
 								<div class="relavent-story-list-wrap">
                                     {% if Publi %}
                                         {% for P in Publi %}
-                                            <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+                                            <div class="w3-container w3-card w3-white w3-round w3-margin-bottom"><br>
                                                 <a href="{% url 'profiles:show' P.pub_par.slug %}"><img style="border-radius:50%;" src="{% thumbnail P.pub_par.user.profile.picture|default:'default_profile.png' 40x40 crop %}" alt="photo" class="w3-left w3-margin-right"></a>
-                                            <span class="w3-right w3-opacity">{{ P.pub_dat }}</span>
-                                            <h4>{{ P.pub_par }}</h4><br>
+                                            <h4>{{ P.pub_par }}</h4>
                                             <hr class="w3-clear">
                                             <p>{{ P.pub_text | safe }}</p>
                                             {% if P.pub_file %}
-												<a href="{% url 'details_publi' P.id %}"><img src="{{ P.pub_file.url }}" style="width:100%; height: 300px" class="w3-margin-bottom" alt=""></a>
+												<a href="{% url 'details_publi' P.id %}"><img src="{{ P.pub_file.url }}" style="width:100%; max-height: 250px" class="w3-margin-bottom" alt=""></a>
                                             {% else %}
                                                 {% endif %}
                                                 <a href="{% url 'details_publi' P.id %}"><button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-eye"></i>  Voir</button></a>
-                                            <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-facebook-official"></i>{% post_to_facebook object_or_url "Partager" %}</button>
+                                           <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom" ><i class="fa fa-facebook-official"></i>{% post_to_facebook object_or_url "Partager" %}</button>
                                            </div>
                                         {% endfor %}
                                     {% endif %}

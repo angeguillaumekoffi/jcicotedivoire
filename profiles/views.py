@@ -133,7 +133,7 @@ class Formulaire(LoginRequiredMixin, generic.TemplateView):
         profile_form = forms.Formulaire(
             request.POST, request.FILES, instance=user.profile
         )
-        if not (user_form.is_valid() and profile_form.is_valid()):
+        if not (profile_form.is_valid()):
             messages.error(
                 request,
                 "Echec de validadation ! " "Revoyez les details s'il vous plait.",
@@ -142,11 +142,9 @@ class Formulaire(LoginRequiredMixin, generic.TemplateView):
             profile_form = forms.Formulaire(instance=user.profile)
             return super().get(request, user_form=user_form, profile_form=profile_form)
         # Both forms are fine. Time to save!
-        user_form.save()
         profile = profile_form.save(commit=False)
         profile.user = user
         profile.save()
-
         messages.success(request, "Félicitation! Il ne reste plus qu'une étape à valider")
         return redirect("profiles:formation")
 

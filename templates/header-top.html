@@ -57,6 +57,25 @@
   background-color: #77dc71;
 }
 
+.ul{
+    display: table;
+    width: 2100px;
+    -webkit-animation: slideAnim 20s ease 0s infinite;
+    -moz-animation: slideAnim 20s ease 0s infinite;
+    animation: slideAnim 20s ease 0s infinite;
+}
+
+.li{
+    display: table-cell;
+    overflow: hidden;
+    width:300px;
+}
+
+@keyframes slideAnim{
+   from,0%,to {margin-left:5px;}
+    15%,26%{margin-left:-725px;}
+    40%,60%{margin-left:-1350px;}
+}
 </style>
 <div class="header-top">
     <div class="container">
@@ -98,9 +117,9 @@
             <a href="{% url 'accounts:login' %}">
             <button class="cont"  style="padding: 3px">ESPACE MEMBRES</button></a>
         </div>
-        <form action="{% url 'Recherche' %}" method="get" style="display: inline-block">
+        <form action="{% url 'Recherche' %}" method="get" style="display: inline-block" class="dropdown1">
             <div class="dropdown1">
-                <input class="recherche w3-input " type="text" name="q" style="max-width: 100%; border-radius:4%; border: 2px solid #77dc71;" placeholder="Rechercher" value="" required>
+                <input class="recherche w3-input " type="text" name="q" style="max-width: 100%; border-radius:4%; border: 2px solid #77dc71; margin-top: 8px" placeholder="Rechercher" value="" required>
             </div>
             <button type="submit" style="background-color: #77dc71; border: 4px solid #77dc71"><i class="fa fa-search" ></i></button>
         </form>
@@ -111,8 +130,18 @@
                     <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="">
                 </a>
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-12 logo-right no-padding ads-banner">
-                <img class="img-fluid" src="{% static 'img/banner-ad.jpg' %}" alt="" width="728" height="90">
+            <div class="col-lg-8 col-md-8 col-sm-12 logo-right no-padding ads-banner" style="width:728px; height:90px; overflow: hidden">
+                <div class="ul" >
+                    <div class="li">
+                        <img class="img-fluid" src="{% static 'img/Beassivoire jci.jpg' %}" alt="" width="728" height="90">
+                    </div>
+                    <div class="li">
+                        <img class="img-fluid" src="{% static 'img/Longue-white jci.jpg' %}" alt="" width="728" height="90">
+                    </div>
+                    <div class="li">
+                        <img class="img-fluid" src="{% static 'img/French-Mutzig jci.jpg' %}" alt="" width="728" height="90">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
