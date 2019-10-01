@@ -49,7 +49,7 @@
 										<li><a href="#"><span class="lnr lnr-calendar-full"></span>{{ detail_actv.date_pub }}</a></li>
 									</ul>
 									<p>
-                                        {{ detail_actv.contenu_actv }}
+                                        {{ detail_actv.contenu_actv | safe }}
                                     </p>
                                     <p><button type="button" class="fa fa-facebook-official w3-button w3-blue w3-margin-bottom" >{% post_to_facebook object_or_url "Partager" %}</button>
                                     </p>

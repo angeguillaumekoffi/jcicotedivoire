@@ -70,7 +70,7 @@
 							<!-- End latest-post Area -->
                         <!-- Start banner-ads Area -->
 							<div class="col-lg-12 ad-widget-wrap mt-30 mb-30">
-								<img class="img-fluid" src="{% static 'img/banner-ad.jpg' %}" alt="">
+								<img class="img-fluid" src="{% static 'img/part-jci.gif' %}" alt="">
 							</div>
 							<!-- End banner-ads Area -->
 							<!-- Start popular-post Area -->
@@ -79,7 +79,7 @@
 							<!-- Start relavent-story-post Area -->
 							<div class="relavent-story-post-wrap mt-30">
 								<h4 class="title">PUBLICATIONS DES MEMBRES</h4>
-								<div class="relavent-story-list-wrap">
+							</div>
                                     {% if Publi %}
                                         {% for P in Publi %}
                                             <div class="w3-container w3-card w3-white w3-round w3-margin-bottom"><br>
@@ -88,7 +88,7 @@
                                             <hr class="w3-clear">
                                             <p>{{ P.pub_text | safe }}</p>
                                             {% if P.pub_file %}
-												<a href="{% url 'details_publi' P.id %}"><img src="{{ P.pub_file.url }}" style="width:100%; max-height: 250px" class="w3-margin-bottom" alt=""></a>
+												<a href="{% url 'details_publi' P.id %}"><img src="{{ P.pub_file.url }}" style="width:100%; max-height: 300px" class="w3-margin-bottom" alt=""></a>
                                             {% else %}
                                                 {% endif %}
                                                 <a href="{% url 'details_publi' P.id %}"><button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-eye"></i>  Voir</button></a>
@@ -96,8 +96,6 @@
                                            </div>
                                         {% endfor %}
                                     {% endif %}
-								</div>
-							</div>
 						</div>
 						{% include 'pages/ruban_droite.html' %}
 					</div>

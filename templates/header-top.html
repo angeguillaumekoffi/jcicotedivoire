@@ -45,7 +45,7 @@
 @media (max-width: 330px) {
   .recherche {
     margin-top: 8px;
-    width: 350px;
+    width: 300px;
   }
 }
 
@@ -89,7 +89,7 @@
                     {% endfor %}
                 </span>
             </div>
-            <div class="col-lg-6 header-top-right w3-display-topright no-padding" style="margin-top: 10px; margin-right: 8%;@media () {.header-top-right w3-display-topright no-padding:margin-right: 2%}">
+            <div class="col-lg-6 header-top-right w3-display-topright no-padding" style="margin-top: 10px; margin-right: 8%; @media (max-width: 330px) {.header-top-right .w3-display-topright{margin-right: 40%}}">
                 <ul>
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -119,7 +119,7 @@
         </div>
         <form action="{% url 'Recherche' %}" method="get" style="display: inline-block" class="dropdown1">
             <div class="dropdown1">
-                <input class="recherche w3-input " type="text" name="q" style="max-width: 100%; border-radius:4%; border: 2px solid #77dc71; margin-top: 8px" placeholder="Rechercher" value="" required>
+                <input class="recherche w3-input " type="text" name="q" style="width:200px; max-width: 150%; border-radius:4%; border: 2px solid #77dc71; margin-top: 8px" placeholder="Rechercher" value="" required>
             </div>
             <button type="submit" style="background-color: #77dc71; border: 4px solid #77dc71"><i class="fa fa-search" ></i></button>
         </form>
@@ -130,18 +130,8 @@
                     <img class="img-fluid" src="{% static 'img/logo.png' %}" alt="">
                 </a>
             </div>
-            <div class="col-lg-8 col-md-8 col-sm-12 logo-right no-padding ads-banner" style="width:728px; height:90px; overflow: hidden">
-                <div class="ul" >
-                    <div class="li">
-                        <img class="img-fluid" src="{% static 'img/Beassivoire jci.jpg' %}" alt="" width="728" height="90">
-                    </div>
-                    <div class="li">
-                        <img class="img-fluid" src="{% static 'img/Longue-white jci.jpg' %}" alt="" width="728" height="90">
-                    </div>
-                    <div class="li">
-                        <img class="img-fluid" src="{% static 'img/French-Mutzig jci.jpg' %}" alt="" width="728" height="90">
-                    </div>
-                </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 logo-right no-padding ads-banner">
+                <img class="img-fluid" src="{% static 'img/part-jci.gif' %}" alt="" width="100%" height="90">
             </div>
         </div>
     </div>

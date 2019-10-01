@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import django_heroku
 from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -110,9 +109,9 @@ WSGI_APPLICATION = "gettingstarted.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jci_bd',
-        'USER': 'Ange_Guillaume',
-        'PASSWORD': "01389440",
+        'NAME': 'astechc1_jci-ci',
+        'USER': 'astechc1_Koffi',
+        'PASSWORD': "Koffi@astech.ci",
         'HOST': 'localhost',
         'PORT': '3306'
     }
@@ -166,13 +165,12 @@ USE_TZ = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-django_heroku.settings(locals())
 
 # Authentication Settings
 AUTH_USER_MODEL = "authtools.User"

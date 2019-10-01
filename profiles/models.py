@@ -13,7 +13,7 @@ choix = [
     ('DIVORCE(E)', 'divorcé(e)')
 ]
 
-dat = timezone.now()
+dat = timezone.now
 date = datetime.date.today()
 
 def publication(instance, filename):
@@ -61,7 +61,7 @@ class BaseProfile(models.Model):
 @python_2_unicode_compatible
 class Profile(BaseProfile):
     def __str__(self):
-        return "{}".format(self.user.name)
+        return "{0}".format(self.user.name)
 
 class Publications(models.Model):
     pub_par = models.ForeignKey(Profile, verbose_name=("auteur"), on_delete=models.CASCADE, blank=True, null=True)

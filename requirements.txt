@@ -24,7 +24,6 @@ django-crispy-forms==1.7.2
 django-environ==0.4.5
 django-filebrowser==3.11.1
 django-formtools==2.1
-django-heroku==0.3.1
 django-grappelli==2.12.3
 django-import-export==1.2.0
 django-reversion==3.0.4
@@ -63,8 +62,6 @@ opencv-python==4.1.0.25
 openpyxl==2.6.2
 pandas==0.24.2
 Pillow==6.1.0
-psycopg2==2.8.3
-psycopg2-binary==2.8.3
 pyasn1==0.4.5
 pyasn1-modules==0.2.5
 pyparsing==2.4.0

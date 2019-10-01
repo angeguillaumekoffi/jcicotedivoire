@@ -49,10 +49,10 @@ class index(generic.TemplateView):
 
     def get(self, request, *args, **kwargs):
         actua = Actualites.objects.all().order_by('-actu_dat')[:4]
+        activ = Activites.objects.all().order_by('-date_pub')[:5]
         actua_gal = Actualites.objects.all().order_by('-actu_dat')[:4]
         publi_gal = Publications.objects.all().order_by('-pub_dat')[:4]
-        Actu_sec = Actualites.objects.get(id=1)
-        Actu_3 = Actualites.objects.get(id=2)
+        Actu_sec = Actualites.objects.all().order_by('-actu_dat')[:2]
         List_olm = OLM.objects.all().order_by('olm')
         Bande_info = BandeInfo.objects.all().order_by('-id')
         publi = Publications.objects.all().order_by('-pub_dat')[:4]
@@ -62,10 +62,10 @@ class index(generic.TemplateView):
             kwargs["abn_form"] = AbonnesForm()
         kwargs["List_olm"]=List_olm
         kwargs["Info"]=Bande_info
-        kwargs["Actu_3"] = Actu_3
         kwargs["Actu_sec"] = Actu_sec
         kwargs["Publi"] = publi
         kwargs["Actua"] = actua
+        kwargs["Activ"] = activ
         kwargs["Publi_gal"] = publi_gal
         kwargs["Actua_gal"] = actua_gal
         return super().get(request, *args, **kwargs)
