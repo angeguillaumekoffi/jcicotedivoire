@@ -41,7 +41,7 @@ future==0.17.1
 gitdb2==2.0.5
 GitPython==2.1.11
 gunicorn==19.9.0
-httplib2==0.9.2
+httplib2==0.18.0
 idna==2.8
 itsdangerous==1.1.0
 jdcal==1.4.1
