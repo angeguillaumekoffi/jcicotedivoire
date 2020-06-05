@@ -14,7 +14,7 @@ cycler==0.10.0
 defusedxml==0.6.0
 diff-match-patch==20181111
 dj-database-url==0.5.0
-Django==2.2
+Django==2.2.13
 django-appconf==1.0.3
 django-authtools==1.7.0
 django-bootstrap4==0.0.8
